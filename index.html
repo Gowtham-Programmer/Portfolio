@@ -5,392 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Gowtham R - PHP / Laravel developer portfolio" />
   <title>Gowtham R | PHP / Laravel Developer</title>
-  <style>
-    :root {
-      --bg: #0b1020;
-      --bg-soft: #121a2d;
-      --panel: rgba(19, 27, 46, 0.9);
-      --panel-strong: #111a2d;
-      --text: #eaf1ff;
-      --muted: #adbbd7;
-      --primary: #7c9cff;
-      --primary-2: #67e8f9;
-      --accent: #8b5cf6;
-      --line: rgba(160, 175, 210, 0.2);
-      --glow: rgba(124, 156, 255, 0.28);
-      --shadow: 0 20px 45px rgba(7, 11, 25, 0.35);
-    }
-
-    * { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(124, 156, 255, 0.22), transparent 28%),
-        radial-gradient(circle at bottom right, rgba(103, 232, 249, 0.12), transparent 24%),
-        linear-gradient(135deg, #09111f, #101827 50%, #0d1324);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      color: var(--primary-2);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .container {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 0 22px;
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(12px);
-      background: rgba(9, 17, 31, 0.7);
-      border-bottom: 1px solid var(--line);
-      z-index: 10;
-    }
-
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      min-height: 72px;
-      gap: 14px;
-    }
-
-    .brand {
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      color: var(--text);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      flex-wrap: wrap;
-      font-size: 0.95rem;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-    }
-
-    .hero {
-      padding: 90px 0 60px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: 36px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(124, 156, 255, 0.08);
-      color: var(--primary-2);
-      padding: 8px 14px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      font-size: clamp(2.8rem, 5vw, 5rem);
-      line-height: 1.05;
-      margin: 18px 0 16px;
-      letter-spacing: -0.06em;
-    }
-
-    .highlight {
-      background: linear-gradient(135deg, var(--primary-2), var(--primary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .subtitle {
-      font-size: 1.15rem;
-      color: var(--muted);
-      margin: 0 0 22px;
-      max-width: 700px;
-    }
-
-    .btn-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 26px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      padding: 13px 22px;
-      font-weight: 700;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .btn:hover {
-      text-decoration: none;
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: #fff;
-      box-shadow: 0 12px 25px rgba(124, 156, 255, 0.25);
-    }
-
-    .btn-secondary {
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.02);
-      color: var(--text);
-    }
-
-    .profile-card {
-      background: linear-gradient(180deg, rgba(17, 26, 45, 0.92), rgba(11, 16, 32, 0.92));
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      padding: 28px;
-    }
-
-    .avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(124,156,255,0.3), rgba(103,232,249,0.3));
-      border: 1px solid rgba(255,255,255,0.12);
-      display: grid;
-      place-items: center;
-      font-size: 2.3rem;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    .stat-boxes {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 20px;
-    }
-
-    .stat {
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 16px 12px;
-      text-align: center;
-      background: rgba(255,255,255,0.03);
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 1.5rem;
-      color: var(--primary-2);
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 0.8rem;
-    }
-
-    section {
-      padding: 52px 0;
-    }
-
-    .section-title {
-      margin: 0 0 28px;
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      letter-spacing: -0.04em;
-    }
-
-    .skills-wrap {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-    }
-
-    .skill-card,
-    .project-card,
-    .timeline-item,
-    .contact-card {
-      background: rgba(17, 26, 45, 0.8);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-    }
-
-    .skill-card {
-      padding: 22px 18px;
-    }
-
-    .skill-card h3 {
-      margin: 0 0 14px;
-      font-size: 0.88rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .chip {
-      background: rgba(124, 156, 255, 0.12);
-      border: 1px solid rgba(124, 156, 255, 0.2);
-      color: var(--primary-2);
-      border-radius: 999px;
-      padding: 7px 12px;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 20px;
-    }
-
-    .timeline-item {
-      padding: 24px 20px;
-    }
-
-    .timeline-item h3 {
-      margin: 0;
-      font-size: 1.2rem;
-    }
-
-    .meta {
-      margin: 8px 0 12px;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .timeline-item ul {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 18px;
-    }
-
-    .project-card {
-      padding: 22px 18px;
-    }
-
-    .project-card h3 {
-      margin: 0 0 10px;
-      font-size: 1.1rem;
-    }
-
-    .project-card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .education-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 16px;
-    }
-
-    .education-list li {
-      background: rgba(17, 26, 45, 0.8);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 18px 20px;
-      color: var(--muted);
-    }
-
-    .education-list strong {
-      color: var(--text);
-    }
-
-    .contact-wrap {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .contact-card {
-      padding: 24px 20px;
-    }
-
-    .contact-card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    footer {
-      padding: 12px 0 52px;
-      color: var(--muted);
-      text-align: center;
-      border-top: 1px solid var(--line);
-      margin-top: 18px;
-    }
-
-    @media (max-width: 768px) {
-      .hero-grid,
-      .contact-wrap {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-inner {
-        flex-direction: column;
-        justify-content: center;
-        padding: 16px 0;
-      }
-
-      .hero {
-        padding-top: 60px;
-      }
-
-      .stat-boxes {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav>
+  <nav id="main-nav">
     <div class="container nav-inner">
       <div class="brand">GOWTHAM R</div>
       <div class="nav-links">
@@ -398,15 +16,16 @@
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="resume.pdf" target="_blank" download>Resume</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
   </nav>
 
   <main class="container">
-    <header class="hero" id="about">
+    <header class="hero reveal" id="about">
       <div class="hero-grid">
-        <div>
+        <div class="hero-copy reveal">
           <div class="eyebrow">Available for work</div>
           <h1>I'm <span class="highlight">Gowtham R</span>, a PHP & Laravel developer.</h1>
           <p class="subtitle">
@@ -415,10 +34,12 @@
           <div class="btn-row">
             <a class="btn btn-primary" href="mailto:gowthamr15698@gmail.com">Email Me</a>
             <a class="btn btn-secondary" href="#projects">View Projects</a>
+            <a class="btn btn-secondary" href="resume.pdf" target="_blank" download>Download Resume</a>
+            <a class="btn btn-secondary" href="resume.pdf" target="_blank">View Resume</a>
           </div>
         </div>
 
-        <aside class="profile-card">
+        <aside class="profile-card reveal">
           <div class="avatar">GR</div>
           <div>
             <strong>PHP / Laravel Developer</strong><br />
@@ -443,10 +64,10 @@
       </div>
     </header>
 
-    <section id="skills">
+    <section id="skills" class="reveal">
       <h2 class="section-title">Technical Skills</h2>
       <div class="skills-wrap">
-        <article class="skill-card">
+        <article class="skill-card reveal">
           <h3>Backend</h3>
           <div class="chips">
             <span class="chip">PHP 8.x</span>
@@ -457,7 +78,7 @@
           </div>
         </article>
 
-        <article class="skill-card">
+        <article class="skill-card reveal">
           <h3>APIs &amp; Integrations</h3>
           <div class="chips">
             <span class="chip">REST APIs</span>
@@ -467,7 +88,7 @@
           </div>
         </article>
 
-        <article class="skill-card">
+        <article class="skill-card reveal">
           <h3>Database</h3>
           <div class="chips">
             <span class="chip">MySQL</span>
@@ -477,7 +98,7 @@
           </div>
         </article>
 
-        <article class="skill-card">
+        <article class="skill-card reveal">
           <h3>Security</h3>
           <div class="chips">
             <span class="chip">Auth</span>
@@ -487,7 +108,7 @@
           </div>
         </article>
 
-        <article class="skill-card">
+        <article class="skill-card reveal">
           <h3>Frontend</h3>
           <div class="chips">
             <span class="chip">HTML5</span>
@@ -497,7 +118,7 @@
           </div>
         </article>
 
-        <article class="skill-card">
+        <article class="skill-card reveal">
           <h3>Platforms</h3>
           <div class="chips">
             <span class="chip">Stripe</span>
@@ -510,10 +131,10 @@
       </div>
     </section>
 
-    <section id="experience">
+    <section id="experience" class="reveal">
       <h2 class="section-title">Experience</h2>
       <div class="timeline">
-        <article class="timeline-item">
+        <article class="timeline-item reveal">
           <h3>Software Developer</h3>
           <div class="meta">Zibtek Pvt. Ltd. · Bangalore · July 2023 – Present</div>
           <ul>
@@ -526,43 +147,43 @@
       </div>
     </section>
 
-    <section id="projects">
+    <section id="projects" class="reveal">
       <h2 class="section-title">Projects</h2>
       <div class="projects-grid">
-        <article class="project-card">
+        <article class="project-card reveal">
           <h3>Document Workflow Management System</h3>
           <p>Built with Laravel to handle approvals, role permissions, and workflow tracking across document processes.</p>
         </article>
 
-        <article class="project-card">
+        <article class="project-card reveal">
           <h3>Service Marketplace Platform</h3>
           <p>Created a secure backend for users, listings, transactions, and service-based workflows using Laravel + MySQL.</p>
         </article>
 
-        <article class="project-card">
+        <article class="project-card reveal">
           <h3>VoIP Communication System</h3>
           <p>Connected backend workflows with Asterisk and Twilio for call handling, communication logic, and debugging support.</p>
         </article>
 
-        <article class="project-card">
+        <article class="project-card reveal">
           <h3>WordPress Projects</h3>
           <p>Developed custom theme and integration work for CMS-based websites and business landing pages.</p>
         </article>
       </div>
     </section>
 
-    <section id="education">
+    <section id="education" class="reveal">
       <h2 class="section-title">Education</h2>
       <ul class="education-list">
-        <li><strong>MBA, Business Analytics</strong><br />AVS Engineering College, Salem</li>
-        <li><strong>B.E., Mechanical Engineering</strong><br />Shreenivasa Engineering College, Dharmapuri</li>
+        <li class="reveal"><strong>MBA, Business Analytics</strong><br />AVS Engineering College, Salem</li>
+        <li class="reveal"><strong>B.E., Mechanical Engineering</strong><br />Shreenivasa Engineering College, Dharmapuri</li>
       </ul>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="reveal">
       <h2 class="section-title">Contact</h2>
       <div class="contact-wrap">
-        <div class="contact-card">
+        <div class="contact-card reveal">
           <p>Let's connect for backend development, Laravel projects, API integrations, or freelance work.</p>
           <div class="contact-links">
             <a class="btn btn-primary" href="mailto:gowthamr15698@gmail.com">gowthamr15698@gmail.com</a>
@@ -570,7 +191,7 @@
           </div>
         </div>
 
-        <div class="contact-card">
+        <div class="contact-card reveal">
           <p><strong>Location:</strong> Bangalore, India</p>
           <p><strong>GitHub:</strong> <a href="https://github.com/Gowtham-Programmer">Gowtham-Programmer</a></p>
           <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com">LinkedIn Profile</a></p>
@@ -580,7 +201,11 @@
   </main>
 
   <footer>
-    © 2026 Gowtham R — Built with HTML, CSS, and a sleek portfolio design.
+    <div class="footer-brand">Designed &amp; Developed by</div>
+    <div class="footer-name">Gowtham R</div>
+    <div class="footer-copy">© <span id="year"></span> · Turning ideas into reality.</div>
   </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
